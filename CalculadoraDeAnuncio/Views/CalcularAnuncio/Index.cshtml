@@ -1,0 +1,39 @@
+﻿@model CalculadoraDeAnuncio.Models.Anuncio
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <h1>Calculadora de Anúncios</h1>
+    @using (Html.BeginForm("/Index", "CalcularAnuncio", FormMethod.Post))
+    {
+        <div class="container">
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <label>Digite o valor do investimento</label>
+                    <input type="text" class="form-control" id="valor" name="valor" value="@Model.Valor" placeholder="Digite o Valor do Investimento " required>
+                    <div class="input-group-append">
+                        <button type="submit" data-toggle="modal" id="btn-calcular" data-target="#modal-resultadoCalculo" class="btn btn-primary" name="calcular">Calcular</button>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label>Valor Investido</label>
+                        <input type="text" class="form-control" id="valor-investido" value="@Model.Valor" placeholder="Digite o Valor do Investimento">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label>Alcance</label>
+                        <input type="text" class="form-control" id="alcance" value="@Model.Resultado" placeholder="Digite o Valor do Investimento ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.mask.min.js"></script>
+    <script src="~/Scripts/CalcularAnuncio/Mask.js"></script>
+}
+
+
+
+
